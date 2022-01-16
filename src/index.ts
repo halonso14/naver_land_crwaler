@@ -1,11 +1,20 @@
-import express, { Request, Response, NextFunction } from "express";
+import express from "express";
 
-const app = express();
+import config from "./config";
 
-app.get("/", (req: Request, res: Response, next: NextFunction) => {
-  res.send("welcome!");
-});
+async function startServer() {
+  const app = express();
 
-app.listen("3000", () => {
-  console.log(`Server listening on port: http://localhost:3000`);
-});
+  await require("./loaders").default({ expressApp: app });
+
+  app
+    .listen(config.port, () => {
+      console.log(`Server listening on port: http://localhost:${config.port}`);
+    })
+    .on("error", (err) => {
+      console.error(err);
+      process.exit(1);
+    });
+}
+
+startServer();
