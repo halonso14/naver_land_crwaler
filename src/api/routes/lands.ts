@@ -19,7 +19,7 @@ export default (app: Router) => {
       try {
         while (true) {
           const { data } = await axios.get(
-            `https://m.land.naver.com/complex/getComplexArticleList?hscpNo=${id}&tradTpCd=A1&order=point_&showR0=N&page=${page}`,
+            `https://m.land.naver.com/complex/getComplexArticleList?hscpNo=${id}&order=point_&showR0=N&page=${page}`,
           );
           if (data.result === 'error') {
             return res.status(400).json({ data: 'Invalid id.' });
