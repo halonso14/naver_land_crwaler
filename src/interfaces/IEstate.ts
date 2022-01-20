@@ -1,5 +1,4 @@
 export interface IEstate {
-  _id: string;
   name: string; // atclNm
   estateType: string; // rletTpNm
   tradeType: string; // tradTpNm
@@ -12,13 +11,12 @@ export interface IEstate {
 }
 
 export interface IEstateInputDTO {
-  name: string;
-  estateType: string;
-  tradeType: string;
-  building: string;
-  floar: string;
-  price: string;
-  supplyArea: number;
-  leaseableArea: number;
-  date: Date;
+  atclNm: string;
+  rletTpNm: string;
+  tradTpNm: string;
+  bildNm: string;
+  flrInfo: string;
+  prcInfo: string;
+  spc1: number;
+  spc2: number;
 }
